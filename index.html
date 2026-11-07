@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>갓성비창고 | 꿀템만 골라드림</title>
+<meta name="description" content="1~2만원대 갓성비 꿀템만 골라드려요. 릴스 속 번호로 찾기.">
+<meta property="og:title" content="갓성비창고 | 꿀템만 골라드림">
+<meta property="og:description" content="릴스 속 번호로 꿀템 찾기">
+<meta property="og:image" content="og.png">
+<link rel="icon" href="profile.png">
+<style>
+  :root { --bg:#fef6e9; --card:#fff; --ink:#141b34; --sub:#6b6b78; --point:#ff7a1a; --line:#f3e3c8; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif; background:var(--bg); color:var(--ink); }
+  .wrap { max-width:480px; margin:0 auto; padding:20px 16px 48px; }
+  .notice { font-size:12px; line-height:1.5; color:var(--sub); background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 12px; }
+  header { text-align:center; margin:22px 0 18px; }
+  header img { width:112px; height:112px; background:#fef6e9; border-radius:50%; object-fit:cover; border:3px solid #fff; box-shadow:0 2px 8px rgba(0,0,0,.08); }
+  header h1 { font-size:24px; font-weight:900; margin-top:10px; letter-spacing:-.5px; }
+  header p { font-size:14px; color:var(--sub); margin-top:4px; }
+  h2 { font-size:17px; margin:26px 0 10px; letter-spacing:-.3px; }
+  .search { display:flex; gap:8px; }
+  .search input { flex:1; font-size:18px; padding:13px 14px; border-radius:12px; border:2px solid var(--ink); background:#fff; outline:none; }
+  .search input:focus { border-color:var(--point); }
+  .tabs { display:flex; gap:6px; overflow-x:auto; padding-bottom:2px; }
+  .tabs button { flex:none; font-size:14px; padding:8px 12px; border-radius:999px; border:1px solid var(--line); background:#fff; cursor:pointer; }
+  .tabs button.on { background:var(--ink); color:#fff; border-color:var(--ink); }
+  .list { display:flex; flex-direction:column; gap:10px; margin-top:10px; }
+  a.item, div.item { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px; color:inherit; text-decoration:none; }
+  a.item:active { transform:scale(.98); }
+  .no { flex:none; font-weight:800; font-size:15px; color:#fff; background:var(--point); border-radius:8px; padding:6px 8px; }
+  .info { flex:1; min-width:0; }
+  .name { font-weight:700; font-size:16px; }
+  .memo { font-size:13px; color:var(--sub); margin-top:2px; }
+  .price { flex:none; font-weight:800; font-size:15px; }
+  .soon { font-size:12px; color:var(--sub); }
+  .empty { text-align:center; color:var(--sub); font-size:14px; padding:20px 0; }
+  footer { text-align:center; font-size:12px; color:var(--sub); margin-top:30px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="notice">이 페이지의 링크는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다. 카카오톡 선물하기 링크도 큐레이터 활동에 따른 수수료를 받을 수 있습니다.</p>
+
+  <header>
+    <img src="profile.png" alt="갓성비창고" onerror="this.style.display='none'">
+    <h1>갓성비창고</h1>
+    <p>꿀템만 골라드림 · 1~2만원대 갓성비</p>
+  </header>
+
+  <h2>🔢 번호로 찾기</h2>
+  <div class="search"><input id="q" inputmode="numeric" placeholder="릴스 속 번호 입력 (예: 001)" autocomplete="off"></div>
+  <div class="list" id="searchResult"></div>
+
+  <h2 id="weekTitle">🔥 이번 주 꿀템</h2>
+  <div class="list" id="week"></div>
+
+  <h2>📦 카테고리</h2>
+  <div class="tabs" id="tabs"></div>
+  <div class="list" id="cat"></div>
+
+  <footer>@godpr_icestore · <span id="updated"></span> 업데이트</footer>
+</div>
+<script>
+const CATS = [["all","전체"],["gift","🎁 선물"],["home","🏠 자취"],["kitchen","🍳 주방"],["organize","🧹 정리"]];
+let DATA = { items: [] };
+
+function card(it) {
+  const tag = it.link ? "a" : "div";
+  const attrs = it.link ? ` class="item" href="${it.link}" target="_blank" rel="noopener sponsored"` : ` class="item"`;
+  return `<${tag}${attrs}>
+    <span class="no">#${it.no}</span>
+    <span class="info"><div class="name">${it.name}</div><div class="memo">${it.memo || ""}</div></span>
+    <span class="price">${it.link ? it.price : `<span class="soon">링크 준비중</span>`}</span>
+  </${tag}>`;
+}
+function render(el, items, emptyMsg) {
+  el.innerHTML = items.length ? items.map(card).join("") : `<p class="empty">${emptyMsg}</p>`;
+}
+function setCat(key) {
+  document.querySelectorAll("#tabs button").forEach(b => b.classList.toggle("on", b.dataset.k === key));
+  const items = DATA.items.filter(i => key === "all" || i.category === key).sort((a,b) => b.no.localeCompare(a.no));
+  render(document.getElementById("cat"), items, "곧 채워질 예정이에요");
+}
+document.getElementById("q").addEventListener("input", e => {
+  const v = e.target.value.replace(/\D/g, "");
+  const box = document.getElementById("searchResult");
+  if (!v) { box.innerHTML = ""; return; }
+  const hits = DATA.items.filter(i => i.no === v.padStart(3, "0") || i.no.includes(v));
+  render(box, hits, "해당 번호가 없어요");
+});
+fetch("items.json", { cache: "no-store" }).then(r => r.json()).then(d => {
+  DATA = d;
+  document.getElementById("updated").textContent = d.updated;
+  if (d.thisWeekTitle) document.getElementById("weekTitle").textContent = "🔥 이번 주 꿀템 · " + d.thisWeekTitle;
+  render(document.getElementById("week"), d.items.filter(i => i.thisWeek), "이번 주 꿀템 준비중");
+  document.getElementById("tabs").innerHTML = CATS.map(([k,n]) => `<button data-k="${k}">${n}</button>`).join("");
+  document.querySelectorAll("#tabs button").forEach(b => b.onclick = () => setCat(b.dataset.k));
+  setCat("all");
+  const hash = location.hash.replace("#", "");
+  if (hash) { const q = document.getElementById("q"); q.value = hash; q.dispatchEvent(new Event("input")); }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "updated": "2026-11-07",
+  "thisWeekTitle": "🍫 빼빼로데이 & 수능 응원 특집",
+  "items": [
+    { "no": "001", "name": "핸드크림 4종 세트", "price": "9,900원대", "category": "gift", "thisWeek": true, "link": "", "linkType": "coupang", "memo": "향 4개라 취향 실패 확률 낮음" },
+    { "no": "002", "name": "립밤 선물세트", "price": "13,000원대", "category": "gift", "thisWeek": true, "link": "", "linkType": "coupang", "memo": "빼빼로랑 같이 주기 딱" },
+    { "no": "003", "name": "프리저브드 꽃 유리돔", "price": "15,900원대", "category": "gift", "thisWeek": true, "link": "", "linkType": "coupang", "memo": "물 안 줘도 되는 꽃" }
+  ]
+}
