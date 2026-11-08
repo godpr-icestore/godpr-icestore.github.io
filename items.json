@@ -71,6 +71,36 @@
       "link": "https://link.coupang.com/a/ivuI5V6bNk",
       "linkType": "coupang",
       "memo": "수세미로 꾹 누르면 세제가 쏙"
+    },
+    {
+      "no": "014",
+      "name": "붕어빵 손난로 보조배터리",
+      "price": "27,900원",
+      "category": "gift",
+      "thisWeek": true,
+      "link": "https://gift-link.kakao.com/c/CugxjyZA",
+      "linkType": "kakao",
+      "memo": "양면 발열 + 보조배터리, 빼빼로 증정은 행사 기간 한정"
+    },
+    {
+      "no": "015",
+      "name": "짱구 노천탕 머그컵",
+      "price": "19,900원",
+      "category": "gift",
+      "thisWeek": true,
+      "link": "https://gift-link.kakao.com/c/V0L0VC6z",
+      "linkType": "kakao",
+      "memo": "덮개에 짱구가 들어가 있어요"
+    },
+    {
+      "no": "016",
+      "name": "빨간포션 에너지 드링크 2개입",
+      "price": "9,200원",
+      "category": "gift",
+      "thisWeek": true,
+      "link": "https://gift-link.kakao.com/c/TXsg4JCv",
+      "linkType": "kakao",
+      "memo": "게임 속 회복템 그대로 (카페인 250mg)"
     }
   ]
 }
