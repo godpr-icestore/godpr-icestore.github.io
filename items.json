@@ -241,6 +241,36 @@
       "link": "https://link.coupang.com/a/iB5FqFypMG",
       "linkType": "coupang",
       "memo": "자석이라 가까이 가면 둘이 꼭 붙어요"
+    },
+    {
+      "no": "031",
+      "name": "오리 간식 발사기 (노랑오리)",
+      "price": "7,500원",
+      "category": "living",
+      "thisWeek": true,
+      "link": "https://link.coupang.com/a/iDolV9onJs",
+      "linkType": "coupang",
+      "memo": "꾹 누르면 간식이 톡, 강아지·고양이 겸용"
+    },
+    {
+      "no": "032",
+      "name": "컬러 불꽃 생일초 (레인보우 12개입)",
+      "price": "6,800원",
+      "category": "gift",
+      "thisWeek": true,
+      "link": "https://link.coupang.com/a/iDomCHpXrg",
+      "linkType": "coupang",
+      "memo": "불꽃 색이 하나씩 다 달라요"
+    },
+    {
+      "no": "033",
+      "name": "올스텐 냄비 청소솔",
+      "price": "4,110원",
+      "category": "kitchen",
+      "thisWeek": true,
+      "link": "https://link.coupang.com/a/iDong5Fx8e",
+      "linkType": "coupang",
+      "memo": "눌어붙은 냄비도 슥슥, 상품평 744개"
     }
   ]
 }
