@@ -281,6 +281,36 @@
       "link": "https://link.coupang.com/a/iDJETccFDo",
       "linkType": "coupang",
       "memo": "접으면 기둥 하나, 상품평 28개"
+    },
+    {
+      "no": "035",
+      "name": "치이카와 푸딩 무드등 (우사기)",
+      "price": "37,700원",
+      "category": "gift",
+      "thisWeek": true,
+      "link": "https://link.coupang.com/a/iE3QfoSoO4",
+      "linkType": "coupang",
+      "memo": "불을 켜면 푸딩이 노랗게, 상품평 189개"
+    },
+    {
+      "no": "036",
+      "name": "치이카와 버섯머리 거품 디스펜서",
+      "price": "20,800원",
+      "category": "living",
+      "thisWeek": true,
+      "link": "https://link.coupang.com/a/iE3QzHLoHc",
+      "linkType": "coupang",
+      "memo": "버섯 머리를 누르면 거품이 몽글몽글"
+    },
+    {
+      "no": "037",
+      "name": "입는 전기담요 지퍼형 (살구색)",
+      "price": "28,630원",
+      "category": "living",
+      "thisWeek": true,
+      "link": "https://link.coupang.com/a/iE3QTXxXwW",
+      "linkType": "coupang",
+      "memo": "지퍼로 입는 USB 온열 담요, 3단 온도조절"
     }
   ]
 }
